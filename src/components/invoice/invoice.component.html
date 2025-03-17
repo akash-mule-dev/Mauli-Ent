@@ -1,0 +1,26 @@
+<!-- invoice.component.html -->
+<div class="invoice-form">
+  <h2>Create Invoice</h2>
+  <div>
+    <label for="client">Select Client:</label>
+    <select
+      id="client"
+      [(ngModel)]="selectedClient"
+      (change)="onClientChange($event)"
+    >
+      <option *ngFor="let client of clients" [ngValue]="client">
+        {{ client.name }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" [(ngModel)]="quantity" />
+    <span>{{ quantity }}</span>
+  </div>
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="price" />
+  </div>
+  <button (click)="generateInvoice()">Generate Invoice PDF</button>
+</div>
